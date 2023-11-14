@@ -7,11 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Agremiado extends Model
 {
-    protected $table = 'agremiados';
     use HasFactory;
 
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
-
+    protected $fillable = [
+        'nombre',
+        'apellido_p',
+        'apellido_m',
+        'id_genero',
+        'NUP',
+        'NUE',
+        'RFC',
+        'NSS',
+        'fecha_nacimiento',
+        'telefono',
+        'cuota',
+        'id_rol'
+    ];
 }

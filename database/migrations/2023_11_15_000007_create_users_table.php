@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
-            $table->increments('id_usuario');
-            $table->string('nue')->unique();
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->string('password');
-            $table->unsignedInteger('id_rol');
+            $table->string('NUE',10);
+            $table->rememberToken();
 
-            $table->foreign('id_rol')->references('id_rol')->on('roles');
+            $table->unsignedBigInteger('id_rol');
+            $table->foreign('id_rol')->references('id')->on('rols');
 
+            $table->timestamps();
         });
     }
 
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('users');
     }
 };
