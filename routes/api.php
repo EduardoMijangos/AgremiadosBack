@@ -35,6 +35,7 @@ Route::put('updateRol/{id}', [RolController::class, 'updateRol']);
 Route::delete('deleteRol/{id}', [RolController::class, 'deleteRol']);
 
 
+
 Route::post('genero', [GeneroController::class, 'registerGenero']);
 Route::get('getGeneros', [GeneroController::class, 'getGeneros']);
 Route::get('getGenero/{id}', [GeneroController::class, 'getGenero']);

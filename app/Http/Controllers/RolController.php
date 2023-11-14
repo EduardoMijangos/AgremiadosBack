@@ -17,7 +17,11 @@ class RolController extends Controller
 
     public function getRols(){
         $rols = Rol::all();
-        return response($rols, 200);
+        if($rols->count() > 0){
+            return response($rols, 200);
+        }else{
+            return response(['message' => 'Rol no encontrado'], 404);
+        }
     }
 
     public function getRol($id){

@@ -17,8 +17,13 @@ class GeneroController extends Controller
 
     public function getGeneros(){
         $generos = Genero::all();
-        return response($generos, 200);
+        if($generos->count() > 0){
+            return response($generos, 200);
+        }else{
+            return response(['message' => 'No se encontraron géneros'], 404);
+        }
     }
+    
 
     public function getGenero($id){
         $genero = Genero::find($id);
