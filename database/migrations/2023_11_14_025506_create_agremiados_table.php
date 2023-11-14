@@ -12,8 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('agremiados', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id_agremiado');
+            $table->string('a_paterno');
+            $table->string('a_materno');
+            $table->string('nombre');
+            $table->string('sexo');
+            $table->string('nup')->unique();
+            $table->string('nue')->unique();
+            $table->string('rfc')->unique();
+            $table->string('nss')->unique();
+            $table->date('f_nacimiento');
+            $table->string('telefono');
+            $table->decimal('cuota');
+
+            $table->unsignedInteger('id_usuario');
+
+            $table->foreign('id_usuario')->references('id_usuario')->on('usuarios');
         });
     }
 

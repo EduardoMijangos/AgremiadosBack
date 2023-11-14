@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('solicituds', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('solicitudes', function (Blueprint $table) {
+            $table->increments('id_solicitud');
+            $table->string('nue');
+            $table->string('ruta_archivo');
+            $table->date('fecha');
         });
     }
 
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('solicituds');
+        Schema::dropIfExists('solicitudes');
     }
 };
